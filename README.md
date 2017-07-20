@@ -23,9 +23,9 @@ Berikut API yang bisa d gunakan dalam web app ini:
 | POST | /signup | create new user |
 | POST | /signin | authenticate user |
 | GET | / | get all article blog post |
-| GET |  article/:id | view only 1 article blog post |
-| POST |  article/new | create new article blog post |
-| PUT |  article/:id | edit article blog post |
-| GET | article/by-category | view article blog post by it's category |
-| GET | article/by-author | view article blog post by it's author |
-| DELETE |  article/:id | delete article blog post |
+| GET |  articles/:id | view only 1 article blog post |
+| POST |  articles/new | create new article blog post |
+| PUT |  articles/:id | edit article blog post |
+| GET | articles/by-category | view article blog post by it's category |
+| GET | articles/by-author | view article blog post by it's author |
+| DELETE |  articles/:id | delete article blog post |
