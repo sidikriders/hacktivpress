@@ -1,13 +1,18 @@
 <template>
   <div class="columns">
-    <sign-up-comp></sign-up-comp>
-    <latest-article></latest-article>
+    <side-bar></side-bar>
+    <div class="column">
+      <h1 class="title is-3">Latest Article</h1>
+      <div class="box">
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'home',
   data() {
     return {
     }

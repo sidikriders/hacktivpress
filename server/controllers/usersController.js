@@ -34,7 +34,7 @@ function create(req, res) {
         username: req.body.username,
         password: hash
       }, function(erro, result) {
-        if (erro) res.send(erro)
+        if (erro) console.log(erro)
         else res.send("success")
       })
     }
