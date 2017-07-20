@@ -22,7 +22,14 @@
     </div>
   </div>
 </template>
+<!-- ecommerce
+blog tdd
+blog component
+hacktiv overflow
 
+portofolio
+todofancy
+kanban -->
 <script>
 export default {
   name: 'sign-up-comp',

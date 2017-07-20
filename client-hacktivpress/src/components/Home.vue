@@ -11,11 +11,15 @@
 </template>
 
 <script>
+import sideBar from './sideBar'
 export default {
   name: 'home',
   data() {
     return {
     }
+  },
+  components: {
+    sideBar
   },
   computed: {
   },

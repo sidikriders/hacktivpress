@@ -12,11 +12,6 @@ export default {
   name: 'latest-article',
   data() {
     return {
-      newUser: {
-        name: "",
-        username: "",
-        password: ""
-      }
     }
   },
   computed: {

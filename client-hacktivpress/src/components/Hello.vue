@@ -6,11 +6,18 @@
 </template>
 
 <script>
+import signUpComp from './signUpComp.vue'
+import latestArticle from './latestArticle'
+
 export default {
   name: 'hello',
   data() {
     return {
     }
+  },
+  components: {
+    signUpComp,
+    latestArticle
   },
   computed: {
   },

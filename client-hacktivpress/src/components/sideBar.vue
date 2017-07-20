@@ -15,7 +15,6 @@
 <script>
 export default {
   name: 'side-bar',
-  },
   computed: {
   },
   methods: {
