@@ -12,7 +12,17 @@ Vue.config.productionTip = false
 var store = new Vuex.Store({
   state: {
     msg: "test dlu",
-    isLogin: false
+    isLogin: false,
+    currUser: ""
+  },
+  mutations: {
+    loginGoGo (state, payload) {
+      state.isLogin = true
+      state.currUser = payload.name
+    },
+    logoutGoGo (state) {
+      state.isLogin = false
+    }
   }
 })
 /* eslint-disable no-new */

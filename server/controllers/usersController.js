@@ -50,21 +50,15 @@ function loginNya(req, res) {
     } else if (result.length < 1) {
       res.send("failUsername")
     } else if (bcrypt.compareSync(req.body.password, result[0].password)) {
-      // let tokennya = jwt.sign({
-      //   id: result[0]._id,
-      //   username: result[0].username
-      // }, "pressMachine")
-      // let obeje = {
-      //   name: result[0].name,
-      //   token: tokennya
-      // }
-      res.send({
+      let tokennya = jwt.sign({
+        id: result[0]._id,
+        username: result[0].username
+      }, "pressMachine")
+      let obeje = {
         name: result[0].name,
-        token: jwt.sign({
-          id: result[0]._id,
-          username: result[0].username
-        }, "pressMachine")
-      })
+        token: tokennya
+      }
+      res.send(obeje)
     } else {
       res.send("failPassword")
     }

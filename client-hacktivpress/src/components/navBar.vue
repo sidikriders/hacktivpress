@@ -22,10 +22,10 @@
 
       <div class="navbar-end" v-if="isLogin">
         <div class="navbar-item">
-          <p>Hi, {{currUser.name}}</p>
+          <p>Hi, {{currUser}}</p>
         </div>
         <div class="navbar-item">
-          <button type="button" class="button">Log Out</button>
+          <button type="button" class="button" @click="logoutGoGo">Log Out</button>
         </div>
       </div>
       <div class="navbar-end" style="margin-right: 20px;" v-else>
@@ -39,14 +39,14 @@
         </div>
         <div class="navbar-item">
           <div class="control has-icons-right">
-            <input class="input" type="text" placeholder="Password" v-model="login.pass">
+            <input class="input" type="password" placeholder="Password" v-model="login.pass" @keyup.enter="loginGoGo">
             <span class="icon is-small is-right">
               <i class="fa fa-key"></i>
             </span>
           </div>
         </div>
         <div class="navbar-item" >
-          <button class="button" style="width: 100%;">Login</button>
+          <button class="button" style="width: 100%;" @click="loginGoGo">Login</button>
         </div>
       </div>
 
@@ -68,6 +68,41 @@ export default {
   computed: {
     isLogin () {
       return this.$store.state.isLogin
+    },
+    currUser () {
+      return this.$store.state.currUser
+    }
+  },
+  methods: {
+    loginGoGo() {
+      let self = this
+      axios.post('http://localhost:3000/auth/users/login', {
+        username: self.login.user,
+        password: self.login.pass
+      })
+      .then(function(response) {
+        if (response.data == "failUsername") {
+          alert("Username didn't Exist")
+          self.login.user = ""
+          self.login.pass = ""
+        } else if (response.data == "failPassword") {
+          alert("Wrong Password")
+          self.login.pass = ""
+        } else if (response.data.hasOwnProperty("token")) {
+          localStorage.setItem("token", response.data.token)
+          self.$store.commit('loginGoGo', {name: response.data.name})
+          self.login.user = ""
+          self.login.pass = ""
+          self.$router.push('/home')
+        } else {
+          alert("ERROR")
+        }
+      })
+    },
+    logoutGoGo() {
+      this.$router.push('/')
+      localStorage.clear()
+      this.$store.commit('logoutGoGo')
     }
   }
 }
