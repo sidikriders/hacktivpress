@@ -13,6 +13,9 @@ var articleShema = mongoose.Schema({
     type: String,
     required: true
   },
+  category: [{
+    type: String,
+  }],
   createdAt: {
     type: String,
     required: true
